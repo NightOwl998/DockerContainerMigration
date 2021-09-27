@@ -25,11 +25,8 @@
           </li>
          <li> restart the NFS kernel <br/>
               systemctl restart nfs-kernel-server  
-          </li>
-              
-         
-       </ol>
-      
+          </li>          
+       </ol>      
   </li>
           
   <li>  On the secondary node  
