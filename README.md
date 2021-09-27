@@ -65,8 +65,4 @@
           <li>Run the script restore.sh to restore the lrm container in its previous state </li>
      <li> The VR sample game is the tank game provided by mirror with LRM incroporated in it in addaition to requestServerList the script that allows us to view and join existing servers and the script NeyworkPingDisplay from mirror that we modified to save the rtt every one 1s in a csv File.</li>
      </ol>  </li>
-     
-        
-         
-         
-               </ol>
+      </ol>
