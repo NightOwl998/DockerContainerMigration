@@ -53,10 +53,11 @@
   <li> CRIU Migration  
     <ol> 
       <li> On the primary Host  
-
+        <ol>
         <li> Run the script Run.sh to run the lrm node  </li>
         <li> --- Launch your VR application and connect your clients ( the VR unity sample is included in Tanks)  </li>
         <li> Run the script Checkpoint.sh to save the state of the container </li>
+        </ol>
         </li>
   </li>
     <li> On the secondary Host <br/>
