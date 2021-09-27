@@ -1,0 +1,51 @@
+using System;
+using UnityEngine;
+
+namespace Mirror
+{
+    /// <summary>
+    /// Component that will display the clients ping in milliseconds
+    /// </summary>
+    [DisallowMultipleComponent]
+    [AddComponentMenu("Network/NetworkPingDisplay")]
+    [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-ping-display")]
+    public class NetworkPingDisplay : MonoBehaviour
+    {
+        private String[] add = new string[2] {
+        "Latency",
+        "TimeStamp"
+
+    };
+        //start modif
+        int interval = 1;
+        float nextTime = 0;
+        //end modif
+        public Color color = Color.white;
+        public int padding = 2;
+        int width = 150;
+        int height = 25;
+
+        void OnGUI()
+        {
+            // only while client is active
+            if (!NetworkClient.active) return;
+
+            // show rtt in bottom right corner, right aligned
+            GUI.color = color;
+            Rect rect = new Rect(Screen.width - width - padding, Screen.height - height - padding, width, height);
+            GUIStyle style = GUI.skin.GetStyle("Label");
+            style.alignment = TextAnchor.MiddleRight;
+            if (Time.time >= nextTime)
+            {
+                double vIn = Math.Round(NetworkTime.rtt * 1000);
+            string vOut = vIn.ToString();
+
+            add[0] = vOut;
+            GUI.Label(rect, $"RTT: {Math.Round(NetworkTime.rtt * 1000)}ms", style);
+            GetLatency.AppendToReport(add);
+                nextTime += interval;
+            }
+            GUI.color = Color.white;
+        }
+    }
+}
