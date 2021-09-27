@@ -1,5 +1,5 @@
-<h1>CRIU Based Migration For LRM NODE Docker 
-<h2>This repo explains the steps to implement the CRIU  based docker container migration for lrm node between a primary node and a secondary node 
+<h1>CRIU Based Migration For LRM NODE Docker </h1>
+<h2>This repo explains the steps to implement the CRIU  based docker container migration for lrm node between a primary node and a secondary node </h2>
 <ol> <li> Environement details:  
   <ol>  
      <li> OS version: Ubuntu 16.04.7. </li>
