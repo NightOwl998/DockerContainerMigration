@@ -1,10 +1,10 @@
 # DockerContainerMigration
 The following repo contains steps to implement a CRIU based docker container migration between a primary node and a secondary node.
-0- Environement details: 
+-0- Environement details: 
    0.1-OS version: Ubuntu 16.04.7.
    0.2-CRIU version: 3.15.
    0.3-Docker version: 18.09 (expiremental).
-1- setting up the NFS pool between the primary and secondary node:
+-1- setting up the NFS pool between the primary and secondary node:
     1.1- On the primary Node : 
         1.1.1- Install NFS : 
               sudo apt-get update
