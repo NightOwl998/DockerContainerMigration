@@ -1,11 +1,11 @@
 # DockerContainerMigration
 The following repo contains steps to implement a CRIU based docker container migration between a primary node and a secondary node.<br/>
 
--0- Environement details: <br/>
+0. Environement details: <br/>
    0.1-OS version: Ubuntu 16.04.7. <br/>
    0.2-CRIU version: 3.15. <br/>
    0.3-Docker version: 18.09 (expiremental). <br/>
--1- setting up the NFS pool between the primary and secondary node: <br/>
+1. setting up the NFS pool between the primary and secondary node: <br/>
     1.1- On the primary Node : <br/>
         1.1.1- Install NFS : <br/>
               sudo apt-get update <br/>
@@ -33,7 +33,7 @@ The following repo contains steps to implement a CRIU based docker container mig
                mount /var/locally-mounted <br/>
                mount {IP of NFS server}:/mnt/myshareddir  <br/>
                
-  2- CRIU Migration  <br/>
+  2. CRIU Migration  <br/>
     2.1- On the primary Host  <br/>
         2.1.1 Run the script Run.sh to run the lrm node  <br/>
          --- Launch your VR application and connect your clients ( the VR unity sample is included in Tanks)  <br/>
