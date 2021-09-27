@@ -27,7 +27,7 @@
               systemctl restart nfs-kernel-server  
           </li>
               
-          P.S: If you have a firewall enabled, you’ll also need to open up firewall access using the sudo "ufw allow command". 
+         
        </ol>
       
   </li>
