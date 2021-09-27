@@ -30,7 +30,7 @@ The following repo contains steps to implement a CRIU based docker container mig
                {IP of NFS server}:/mnt/myshareddir /var/locally-mounted nfs defaults 0 0
           1.2.4 Now mount the file share using the following command:
                mount /var/locally-mounted
-               mount {IP of NFS server}:/mnt/myshareddir
+               mount {IP of NFS server}:/mnt/myshareddir 
                
   2- CRIU Migration 
     2.1- On the primary Host 
