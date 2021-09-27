@@ -3,40 +3,50 @@ The following repo contains steps to implement a CRIU based docker container mig
 
 <ol> <li> Environement details:  
   <ol>  
-     <li> OS version: Ubuntu 16.04.7. <li/>
-     <li> CRIU version: 3.15. <li/>
-     <li> Docker version: 18.09 (expiremental). <li/>
+     <li> OS version: Ubuntu 16.04.7. </li>
+     <li> CRIU version: 3.15. </li>
+     <li> Docker version: 18.09 (expiremental). </li>
    </ol>
    </li> 
   
-<li> setting up the NFS pool between the primary and secondary node: <li/> </ol>
-    1.1- On the primary Node : <br/>
-        1.1.1- Install NFS : <br/>
+<li> setting up the NFS pool between the primary and secondary node: 
+  <ol>
+   <li> On the primary Node : 
+     <ol>
+        <li> Install NFS : <br/>
               sudo apt-get update <br/>
-              sudo apt-get install nfs-kernel-server <br/>
-         1.1.2 We’ll now create the root directory of the NFS shares, this is also known as an export folder <br/>
-              sudo mkdir /mnt/myshareddir <br/>
-         1.1.3 Edit the /etc/exports file in a text editor, and add the following directive. <br/>
-              /mnt/myshareddir ip_secondary_node (rw,sync,no_subtree_check) <br/>
-         1.1.4 Make the NFS Share Available to Clients. <br/>
-              exportfs -a  <br/>
-         1.1.5 restart the NFS kernel <br/>
-              systemctl restart nfs-kernel-server  <br/>
+              sudo apt-get install nfs-kernel-server  </li>
+        <li> We’ll now create the root directory of the NFS shares, this is also known as an export folder <br/>
+              sudo mkdir /mnt/myshareddir </li>
+         <li> Edit the /etc/exports file in a text editor, and add the following directive. <br/>
+              /mnt/myshareddir ip_secondary_node (rw,sync,no_subtree_check) </li>
+         <li> Make the NFS Share Available to Clients. <br/>
+              exportfs -a  </li>
+         <li> restart the NFS kernel <br/>
+              systemctl restart nfs-kernel-server  </li>
               
           P.S: If you have a firewall enabled, you’ll also need to open up firewall access using the sudo "ufw allow command".  <br/>
+       
+  </ol>
+  </li>
           
-    1.2-  On the secondary node  <br/>
-         1.2.1 Install NFS :  <br/>
+    <li>  On the secondary node  
+      <ol>
+         <li> Install NFS :  <br/>
                sudo apt-get update <br/>
-               sudo apt-get install nfs-common <br/>
-          1.2.2 Create a local directory—this will be the mount point for the NFS share: <br/>
-               sudo mkdir /var/locally-mounted <br/>
-          1.2.3 Edit the /etc/fstab by adding the following line : <br/>
-               {IP of NFS server}:/mnt/myshareddir /var/locally-mounted nfs defaults 0 0 <br/>
-          1.2.4 Now mount the file share using the following command: <br/>
+               sudo apt-get install nfs-common </li>
+          <li> Create a local directory—this will be the mount point for the NFS share: <br/>
+               sudo mkdir /var/locally-mounted </li>
+          <li> Edit the /etc/fstab by adding the following line : <br/>
+               {IP of NFS server}:/mnt/myshareddir /var/locally-mounted nfs defaults 0 0 </li>
+          <li> Now mount the file share using the following command: <br/>
                mount /var/locally-mounted <br/>
-               mount {IP of NFS server}:/mnt/myshareddir  <br/>
-        <br/>       
+               mount {IP of NFS server}:/mnt/myshareddir  </li>
+      </ol>
+  </li>
+  </ol>
+  </li> 
+  
   2. CRIU Migration  <br/>
     2.1- On the primary Host  <br/>
         2.1.1 Run the script Run.sh to run the lrm node  <br/>
