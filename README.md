@@ -28,8 +28,8 @@
           </li>
               
           P.S: If you have a firewall enabled, you’ll also need to open up firewall access using the sudo "ufw allow command". 
-       
-      </ol>
+       </ol>
+      
   </li>
           
   <li>  On the secondary node  
@@ -72,6 +72,3 @@
          
          
                </ol>
-  
-
-         
