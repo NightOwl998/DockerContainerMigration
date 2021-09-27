@@ -1,7 +1,7 @@
 # DockerContainerMigration
 The following repo contains steps to implement a CRIU based docker container migration between a primary node and a secondary node.<br/>
 
-0. Environement details: <br/>
+<ol> <li> 0. Environement details: <br/> </li> </ol>
    0.1-OS version: Ubuntu 16.04.7. <br/>
    0.2-CRIU version: 3.15. <br/>
    0.3-Docker version: 18.09 (expiremental). <br/>
